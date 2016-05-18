@@ -28,18 +28,22 @@ function mathExpr(maxNumber){
                 }
             }
     }
-console.log(mathExpr(20));
+//console.log(mathExpr(20));
 
 //Функция, которая генрирует 10 примеров в виде двумерного массива
-function moreExpr(maxNumber){
-    for (var i=1;i<=10;i++) {
-       var expr = mathExpr(maxNumber);
-        console.log(expr);
+function moreExpr(maxNumber,exprNumber){
+    var bigArr = [];
+    var expr;
+    for (var i=0;i<exprNumber;i++) {
+        expr = mathExpr(maxNumber);
+        bigArr[i] = expr;
     }
+    return bigArr;
 }
-moreExpr(20);
 
-var multiExpr = [];
+console.log(moreExpr(20,10));
+
+/*var multiExpr = [];
 function testUnic(maxNumber){
 
 for(var i=1;i<=10;i++){
@@ -50,4 +54,4 @@ for(var i=1;i<=10;i++){
 }
 
 }
-console.log(testUnic(20))
+console.log(testUnic(20))*/
