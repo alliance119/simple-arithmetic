@@ -43,8 +43,18 @@ function moreExpr(maxNumber,exprNumber){
 
 $(document).ready(function() {
     var exprArray = moreExpr(20, 10);
+    mathExprToHtml(mathExpr(30));
 });
+function mathExprToHtml(mathExpr) {
+    var mathSign;
+    if (mathExpr[1] === 1) {
+        mathSign = " + ";
+    } else {
+        mathSign = " - ";
+    }
+    $(".mathexpressions").append("<p>"+ mathExpr[0] + mathSign + mathExpr[2] +  " = <input type='text' name='mathExprResult'> </p>");
 
+}
 /*var multiExpr = [];
 function testUnic(maxNumber){
 
