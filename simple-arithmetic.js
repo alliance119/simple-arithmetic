@@ -41,7 +41,9 @@ function moreExpr(maxNumber,exprNumber){
     return bigArr;
 }
 
-console.log(moreExpr(20,10));
+$(document).ready(function() {
+    var exprArray = moreExpr(20, 10);
+});
 
 /*var multiExpr = [];
 function testUnic(maxNumber){
