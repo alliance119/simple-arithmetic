@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="jquery-2.2.3.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Create simple expressions</title>
-    <script src="simple-arithmetic.js"></script>
-</head>
-<body>
-<h1>Простая арифметика)</h1>
-<form action="simple-arithmetic.js">
-    <p><b>Введите необходимое количество примеров:</b>
-        <br>
-        <input type="text" name="number" value="10">
-    </p>
-    <p><b>Максимальное значение операндов:</b>
+    <head>
+        <script src="jquery-2.2.3.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Create simple expressions</title>
+        <script src="simple-arithmetic.js"></script>
+    </head>
+    <body>
+        <h1>Простая арифметика)</h1>
+        <p><b>Введите необходимое количество примеров:</b>
+            <br>
+            <input type="text" name="number" value="10">
+        </p>
+        <p><b>Максимальное значение операндов:</b>
         <br>
         <input type="text" name="max_oper" value="20">
-    </p>
-    <button>Сгенерировать примеры</button>
-</form>
-<div class="mathexpressions"></div>
-</body>
+        </p>
+        <button class="generate">Сгенерировать примеры</button>
+        <div class="mathexpressions"></div>
+    </body>
 </html>
