@@ -42,8 +42,8 @@ function moreExpr(maxNumber,exprNumber){
 }
 
 $(document).ready(function() {
-    var exprArray = moreExpr(20, 10);
     mathExprToHtml(mathExpr(30));
+    multiExprToHtml(moreExpr(20,10));
 });
 function mathExprToHtml(mathExpr) {
     var mathSign;
@@ -53,8 +53,13 @@ function mathExprToHtml(mathExpr) {
         mathSign = " - ";
     }
     $(".mathexpressions").append("<p>"+ mathExpr[0] + mathSign + mathExpr[2] +  " = <input type='text' name='mathExprResult'> </p>");
-
 }
+function multiExprToHtml (exprArray) {
+    for (var j = 0; j < exprArray.length; j++) {
+        mathExprToHtml(exprArray[j]);
+    }
+}
+
 /*var multiExpr = [];
 function testUnic(maxNumber){
 
