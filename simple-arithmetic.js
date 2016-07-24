@@ -42,11 +42,15 @@ function moreExpr(maxNumber,exprNumber){
 }
 
 $(document).ready(function() {
-    multiExprToHtml(moreExpr(20,10));
+    multiExprToHtml(moreExpr(20,$(".amount").val()));
     $(".generate").click(function(){
         $(".mathexpressions").empty();
-        multiExprToHtml(moreExpr(20,10));
+        multiExprToHtml(moreExpr(20,$(".amount").val()));
+
     });
+
+
+
 });
 function mathExprToHtml(mathExpr) {
     var mathSign;
