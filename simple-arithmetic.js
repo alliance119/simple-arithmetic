@@ -31,21 +31,52 @@ function mathExpr(maxNumber){
 //console.log(mathExpr(20));
 
 //Функция, которая генрирует 10 примеров в виде двумерного массива
-function moreExpr(maxNumber,exprNumber){
+function moreExpr(maxNumber,exprNumber) {
     var bigArr = [];
-    var expr;
-    for (var i=0;i<exprNumber;i++) {
-        expr = mathExpr(maxNumber);
-        bigArr[i] = expr;
+    var exprj;
+    bigArr[0]=mathExpr(maxNumber);
+    for (var i = 0; i < exprNumber; i++) {
+        var j=0;
+        exprj = mathExpr(maxNumber);
+        while ( (j < bigArr.length) && !testUn(exprj, bigArr[j]) ){
+            j++;
+        }
+        if(j===bigArr.length){
+            bigArr.push(exprj);
+        }
     }
+
     return bigArr;
 }
+//Функция, которая проверяет примеры на уникальность
+//как добавить пример в большой массив
+//как заставить генерировать еще пример,если попался такой же
+function testUn(ar1,ar2) {
+
+    if (ar1.length !== ar2.length) {
+        return false;
+    } else {
+        var i = 0;
+        while (ar1[i] === ar2[i] && i < ar1.length) {
+            i++;
+        }
+        if(i===ar1.length){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+}
+
+
+console.log(testUn([2,5,2],[2,2,5]));
 
 $(document).ready(function() {
-    multiExprToHtml(moreExpr(20,$(".amount").val()));
+    multiExprToHtml(moreExpr($(".maxoper").val(),$(".amount").val()));
     $(".generate").click(function(){
         $(".mathexpressions").empty();
-        multiExprToHtml(moreExpr(20,$(".amount").val()));
+        multiExprToHtml(moreExpr($(".maxoper").val(),$(".amount").val()));
 
     });
 
@@ -67,15 +98,4 @@ function multiExprToHtml (exprArray) {
     }
 }
 
-/*var multiExpr = [];
-function testUnic(maxNumber){
 
-for(var i=1;i<=10;i++){
-    if (moreExpr(maxNumber) !== multiExpr[i]) {
-        moreExpr(maxNumber) = multiExpr[i];
-}
-    return multiExpr;
-}
-
-}
-console.log(testUnic(20))*/
