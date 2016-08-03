@@ -79,18 +79,18 @@ $(document).ready(function() {
 
 
 });
-function mathExprToHtml(mathExpr) {
+function mathExprToHtml(mathExpr,orderNumb) {
     var mathSign;
     if (mathExpr[1] === 1) {
         mathSign = " + ";
     } else {
         mathSign = " - ";
     }
-    $(".mathexpressions").append("<p>"+ mathExpr[0] + mathSign + mathExpr[2] +  " = <input type='text' name='mathExprResult'> </p>");
+    $(".mathexpressions").append("<p>"+ mathExpr[0] + mathSign + mathExpr[2] +  " = <input type='text'  name='mathExprResult" + orderNumb  + "'> </p>");
 }
 function multiExprToHtml (exprArray) {
     for (var j = 0; j < exprArray.length; j++) {
-        mathExprToHtml(exprArray[j]);
+        mathExprToHtml(exprArray[j],j);
     }
 }
 
