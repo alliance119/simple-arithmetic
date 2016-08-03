@@ -35,12 +35,13 @@ function moreExpr(maxNumber,exprNumber) {
     var bigArr = [];
     bigArr[0]=mathExpr(maxNumber);
     while (bigArr.length < exprNumber) {
+        var exprj=mathExpr(maxNumber);
         var j=0;
-        while ( (j < bigArr.length) && !testUn(mathExpr(maxNumber), bigArr[j]) ){
+        while ( (j < bigArr.length) && !testUn(exprj, bigArr[j]) ){
             j++;
         }
         if(j===bigArr.length){
-            bigArr.push(mathExpr(maxNumber));
+            bigArr.push(exprj);
         }
     }
     return bigArr;
