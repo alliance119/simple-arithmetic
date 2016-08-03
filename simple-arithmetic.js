@@ -33,23 +33,20 @@ function mathExpr(maxNumber){
 //Функция, которая генрирует 10 примеров в виде двумерного массива
 function moreExpr(maxNumber,exprNumber) {
     var bigArr = [];
-    var exprj;
     bigArr[0]=mathExpr(maxNumber);
-    for (var i = 0; i < exprNumber; i++) {
+    while (bigArr.length < exprNumber) {
         var j=0;
-        exprj = mathExpr(maxNumber);
-        while ( (j < bigArr.length) && !testUn(exprj, bigArr[j]) ){
+        while ( (j < bigArr.length) && !testUn(mathExpr(maxNumber), bigArr[j]) ){
             j++;
         }
         if(j===bigArr.length){
-            bigArr.push(exprj);
+            bigArr.push(mathExpr(maxNumber));
         }
     }
-
     return bigArr;
 }
 //Функция, которая проверяет примеры на уникальность
-//как добавить пример в большой массив
+
 //как заставить генерировать еще пример,если попался такой же
 function testUn(ar1,ar2) {
 
@@ -68,9 +65,7 @@ function testUn(ar1,ar2) {
 
     }
 }
-
-
-console.log(testUn([2,5,2],[2,2,5]));
+//console.log(testUn([2,5,2],[2,2,5]));
 
 $(document).ready(function() {
     multiExprToHtml(moreExpr($(".maxoper").val(),$(".amount").val()));
